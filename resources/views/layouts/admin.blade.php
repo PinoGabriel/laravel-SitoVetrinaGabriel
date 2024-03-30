@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link rel="shortcut icon" href="https://cdn-icons-png.freepik.com/512/7412/7412637.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/io.png" type="image/x-icon">
 
     <!-- Fontawesome 6 cdn -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'
@@ -43,6 +43,13 @@
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.contatto.index' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.contatto.index') }}">
+                                    <i class="fa-solid fa-envelope fa-lg fa-fw"></i> Email
                                 </a>
                             </li>
 
