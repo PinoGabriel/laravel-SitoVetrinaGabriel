@@ -16,3 +16,5 @@ class ContattoController extends Controller
         return response()->json(['status' => 'success'], 200);
     }
 }
+
+// commento per nuovo commit
