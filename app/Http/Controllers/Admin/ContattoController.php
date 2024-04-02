@@ -6,6 +6,7 @@ use App\Models\Contatto;
 use App\Http\Requests\StoreContattoRequest;
 use App\Http\Requests\UpdateContattoRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ContattoController extends Controller
 {
@@ -14,8 +15,12 @@ class ContattoController extends Controller
      */
     public function index()
     {
-        $contatto = Contatto::all();
-        return view('admin.contatto.index', compact('contatto'));
+        // Recupera l'utente autenticato
+        $user = Auth()->user();
+
+
+        // Restituisci alla vista i dati dell'utente autenticato
+        return view('admin.contatto.index', compact('user'));
     }
 
     /**

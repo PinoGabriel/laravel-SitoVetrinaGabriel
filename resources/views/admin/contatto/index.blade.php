@@ -4,13 +4,15 @@
     <div class="container">
         <h1 class="text-center py-5">Email ricevute</h1>
         <div class="flex-wrap d-flex justify-content-between">
-            @foreach ($contatto as $item)
+            {{-- user->contattos   bisogna scrivere contattos perchè nel model di User c'è la relazione contattos --}}
+            @foreach ($user->contattos as $item)
                 <div class="card m-2">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->name }}</h5>
                         <p class="card-text">{{ $item->email }}</p>
                         <h6 class="mt-5">Testo email</h6>
                         <p class="card-text">
+                            {{-- Se la lunghezza del testo supera i 28 caratteri la formattiamo aggiungendo alla fine tre punti --}}
                             {{ strlen($item->message) > 28 ? substr($item->message, 0, 28) . '...' : $item->message }}.</p>
                         <form action="{{ route('admin.contatto.destroy', $item->id) }}" method="POST"
                             class="d-inline-block mt-5">

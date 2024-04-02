@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('contattos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("user_id")->nullable();
+            $table->foreign("user_id")->references("id")->on("users")->nullOnDelete();
             $table->string('name', 100);
             $table->string('email', 100);
             $table->text('message');
